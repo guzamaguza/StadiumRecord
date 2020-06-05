@@ -1,14 +1,13 @@
 <h2> Add A New Visit: </h2>
 
 <form method="post" action="/visits/new">
-  <label>Enter the Stadium:</label>
-  <input type="text" name="stadium" placeholder="Stadium"><br>
-  <label>Enter the Date:</label>
 
-  <% @arenas.each do |stadium| %>
-    <input type="checkbox" name="stadium" id="<%= stadium %>" value="<%= stadium %>"><%= stadium.name %><br>
+  <label>Enter the Date:</label>
+  <input type="text" name="date" placeholder="Date"><br>
+  
+  <% @arenas.each do |arena| %>
+    <input type="radio" name="arena" id="<%= arena %>" value="<%= arena %>"><%= arena.name %><br>
   <% end %>
   
-  <input type="text" name="date" placeholder="Date"><br>
-  <input type="submit" value="submit">
+  <input type="submit" value="Submit">
 </form>

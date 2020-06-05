@@ -1,4 +1,4 @@
-@stadium_hash = {
+@arena_hash = {
     "Angel Stadium" => {
       :location => "Anaheim CA",
       :team => "Angels"

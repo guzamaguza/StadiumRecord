@@ -14,6 +14,7 @@ class VisitsController < ApplicationController
     end
 
     post '/visits/new' do
+      #arena and date as values
       @visit = Visit.create(params)
 
       redirect :'/visits'
