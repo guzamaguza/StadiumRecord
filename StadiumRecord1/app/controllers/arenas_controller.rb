@@ -1,8 +1,8 @@
-class StadiumsController < ApplicationController
+class ArenasController < ApplicationController
 
-    get '/stadiums' do
+    get '/arenas' do
 
-      @stadiums = {
+      @arenas = {
         "Angel_Stadium" => {
           :name => "Angel Stadium",
           :location => "Anaheim CA",
@@ -155,7 +155,7 @@ class StadiumsController < ApplicationController
         }
   }
 
-      erb :'/stadiums/index'
+      erb :'/arenas/index'
     end
 
 end
