@@ -20,4 +20,8 @@ class VisitsController < ApplicationController
       redirect :'/visits'
     end
 
+    post '/delete' do
+
+    end
+
 end
