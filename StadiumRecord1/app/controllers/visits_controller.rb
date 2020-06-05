@@ -14,10 +14,7 @@ class VisitsController < ApplicationController
     end
 
     post '/visits/new' do
-      #get visit stadium, date, user_id and make a new visit
       @visit = Visit.create(params)
-      #stadium
-      #date
 
       redirect :'/visits'
     end
