@@ -9,7 +9,7 @@ end
 
 use Rack::MethodOverride
 
-use StadiumsController
+use ArenasController
 use UsersController
 use VisitsController
 run ApplicationController

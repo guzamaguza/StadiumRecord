@@ -1,5 +1,5 @@
 
-@stadiums = {
+@arenas = {
   "Angel_Stadium" => {
     :name => "Angel Stadium",
     :location => "Anaheim CA",
@@ -152,10 +152,10 @@
   }
 }
 
-@stadiums.each do |stadium, stadium_hash|
-  p = Stadium.new
-  p.name = stadium
-  stadium_hash.each do |attribute, value|
+@arenas.each do |arena, arena_hash|
+  p = Arena.new
+  p.name = arena
+  arena_hash.each do |attribute, value|
       p[attribute] = value
   end
   p.save

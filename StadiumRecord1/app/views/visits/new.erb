@@ -5,8 +5,8 @@
   <input type="text" name="stadium" placeholder="Stadium"><br>
   <label>Enter the Date:</label>
 
-  <% @stadiums.each do |stadium| %>
-    <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id %>" value="<%= pet.id %>"><%= pet.name %><br>
+  <% @arenas.each do |stadium| %>
+    <input type="checkbox" name="stadium" id="<%= stadium %>" value="<%= stadium %>"><%= stadium.name %><br>
   <% end %>
   
   <input type="text" name="date" placeholder="Date"><br>

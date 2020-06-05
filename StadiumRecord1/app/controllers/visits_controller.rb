@@ -9,7 +9,7 @@ class VisitsController < ApplicationController
     end
 
     get '/visits/new' do
-
+      @arenas = Arena.all
       erb :'/visits/new'
     end
 
