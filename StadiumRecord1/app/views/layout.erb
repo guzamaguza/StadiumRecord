@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stadium Record</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>Stadium Record</h1>
+        <% if logged_in? %>
+          <p>Welcome, <%=current_user.username %>!</p>
+          <table>
+            <tr>
+              <th><a href="/visits/new"> New Visit Entry </a></th>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <th><a href="/stadiums"> List of Stadiums </a></th>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <th><a href="/visits"> Your Visits </a></th>
+              <th>&nbsp;&nbsp;&nbsp;</th>
+              <th><a href="/logout"> Log Out</a><br></th>
+            </tr>
+          <table>
+        <%end %>
+
+        <%= yield %>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<h2> Add A New Visit: </h2>
+
+<form method="post" action="/visits/new">
+  <label>Enter the Stadium:</label>
+  <input type="text" name="stadium" placeholder="Stadium"><br>
+  <label>Enter the Date:</label>
+
+  <% @stadiums.each do |stadium| %>
+    <input type="checkbox" name="owner[pet_ids][]" id="<%= pet.id %>" value="<%= pet.id %>"><%= pet.name %><br>
+  <% end %>
+  
+  <input type="text" name="date" placeholder="Date"><br>
+  <input type="submit" value="submit">
+</form>

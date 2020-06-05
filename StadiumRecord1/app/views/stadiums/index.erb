@@ -1,0 +1,5 @@
+<h2>All Stadiums: </h2>
+
+<% @stadiums.each_with_index do |value, index| %>
+  <h3> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[0]%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
+<% end %>

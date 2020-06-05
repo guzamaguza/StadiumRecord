@@ -1,0 +1,7 @@
+<h2> Visits: </h2>
+
+<% @visits.each_with_index do |visit, index| %>
+  <h3> <%=index%>) Stadium: <%=visit.stadium %></h3>
+  <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
+  <br>
+<% end %>
