@@ -1,6 +1,6 @@
 #require './db/data/list_of_stadiums'
 
-class Stadium < ActiveRecord::Base
+class Arena < ActiveRecord::Base
   belongs_to  :visits
 
 end
