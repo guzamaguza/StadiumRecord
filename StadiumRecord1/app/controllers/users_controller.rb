@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     user = User.find_by(:username => params[:username])
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(:password => params[:password])
       session[:user_id] = user.id
       redirect to "/visits"
     else
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     if logged_in?
+      session.delete(:message)
       session.destroy
       redirect to '/login'
     else

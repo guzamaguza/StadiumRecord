@@ -1,7 +1,8 @@
 class VisitsController < ApplicationController
     get '/visits' do
       if logged_in?
-        @visits = Visit.all
+        @visits = Visits.all
+
         erb :'/visits/index'
       else
         redirect '/login'

@@ -5,22 +5,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <style>
-    .footer {
+    .copyright {
       text-align: right;
     }
-    .strips {
+    .map {
       background-repeat: repeat-x;
+    }
+    .menu {
+      font-size: 15px;
     }
     </style>
   </head>
   <body>
-    <div class= "strips" style="background-image: url('https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640');">
 
     <div class="container">
       <h1>Stadium Record</h1>
         <% if logged_in? %>
-          <p>Welcome, <%=current_user.username %>!</p>
-          <table>
+          <h3>Welcome, <%=current_user.username %>!</h3>
+          <table class="menu">
             <tr>
               <th><a href="/visits/new"> New Visit Entry </a></th>
               <th>&nbsp;&nbsp;&nbsp;</th>
@@ -35,14 +37,14 @@
 
         <%= yield %>
 
-    </div>
+      </div>
+
+    <div class= "map" style="background-image: url('https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640');"></div>
+
+    <footer>
+      <div class="copyright"><p>©2020 3MG Group LLC All Rights Reserved&nbsp;&nbsp;</p></div>
+      <div class= "map" style="background-image: url('https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640');">
+    </footer>
   </body>
-
-  <footer>
-    <div class="footer">
-      <p>©2020 3MG Group LLC All Rights Reserved&nbsp;&nbsp;</p>
-    </div>
-
-  </footer>
 
 </html>
