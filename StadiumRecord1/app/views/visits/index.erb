@@ -1,6 +1,6 @@
-<h2> Visits: </h2>
+<h2> Your Visits: </h2>
 
-<% @visits.each_with_index do |visit, index| %>
+<% @user.visits.each_with_index do |visit, index| %>
   <h3> <%=index + 1%>) Stadium: <%=visit.arena %></h3>
   <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
   <br>

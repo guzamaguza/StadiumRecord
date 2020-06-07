@@ -1,1 +1,8 @@
-<h1> Your Visit: </h1>
+<h2>Your Stadium Visits:</h2>
+
+<% @user.visits.each do |visit| %>
+    <div>
+        <%= visit.arena %>
+        <%= visit.date %>
+    </div>
+<% end %>

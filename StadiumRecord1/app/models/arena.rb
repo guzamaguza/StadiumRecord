@@ -1,5 +1,4 @@
 class Arena < ActiveRecord::Base
-  belongs_to  :visits
+  belongs_to  :visit
 
 end
-

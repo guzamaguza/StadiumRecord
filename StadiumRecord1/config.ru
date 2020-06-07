@@ -8,8 +8,7 @@ end
 #config.i18n.default_locale = :de
 
 use Rack::MethodOverride
-
+use VisitsController
 use ArenasController
 use UsersController
-use VisitsController
 run ApplicationController
