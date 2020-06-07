@@ -6,3 +6,8 @@
         <%= visit.date %>
     </div>
 <% end %>
+
+<form method="post" action="/visits/<%= @visit.id %>/delete">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete Visit">
+</form>
