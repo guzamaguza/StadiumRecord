@@ -1,10 +1,14 @@
 <h2>Your Stadium Visits:</h2>
 
-<%= @user %>
 
+<% @user.visits.each_with_index do |visit, index| %>
+  <h3> <%=index + 1%>) Stadium: <%=visit.arena %></h3>
+  <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
 
+  <form method="post" action="/visits/<%= visit.id %>/delete">
+  	<input type="hidden" name="_method" value="delete">
+  	<input type="submit" value="Delete Visit">
+  </form>
 
-<form method="post" action="/visits/<%= @visit.id %>/delete">
-	<input type="hidden" name="_method" value="delete">
-	<input type="submit" value="Delete Visit">
-</form>
+  <br>
+<% end %>

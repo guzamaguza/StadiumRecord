@@ -3,7 +3,7 @@ class VisitsController < ApplicationController
       if logged_in?
 
         @visits = Visit.all
-        #@user = User.find_by_slug(params[:slug])
+        @user = User.find_by(id: session[:user_id])
 
         erb :'/visits/show'
       else
@@ -30,10 +30,21 @@ class VisitsController < ApplicationController
 
     post '/visits/new' do
       #arena and date as values
-      @visit = Visit.create(params)
-
-      redirect :'/visits'
-    end
+      if logged_in?
+        if params[:date] == "" || params[:arena] == ""
+          redirect to "/visits/new"
+        else
+          @visit = current_user.visits.build(params)
+          if @visit.save
+            redirect "/visits"
+          else
+            redirect "/tweets/new"
+          end
+        end
+      else
+        redirect '/visits'
+      end
+   end
 
     post '/visits/:id/delete' do
 
