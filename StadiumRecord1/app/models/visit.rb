@@ -1,5 +1,5 @@
 class Visit < ActiveRecord::Base
   belongs_to :user
-  has_many :arenas
+  belongs_to :arenas
 
 end

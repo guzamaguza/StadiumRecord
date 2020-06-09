@@ -3,8 +3,9 @@ class VisitsController < ApplicationController
       if logged_in?
 
         @visits = Visit.all
+        #@user = User.find_by_slug(params[:slug])
 
-        erb :'/visits/index'
+        erb :'/visits/show'
       else
         redirect '/login'
       end
@@ -15,7 +16,7 @@ class VisitsController < ApplicationController
       erb :'/visits/new'
     end
 
-    get 'visits/show' do
+    get '/visits/show' do
       #shows all the user's visits
       if logged_in?
         #@user = User.find_by_slug(params[:slug])
@@ -34,7 +35,7 @@ class VisitsController < ApplicationController
       redirect :'/visits'
     end
 
-    post '/delete' do
+    post '/visits/:id/delete' do
 
     end
 
