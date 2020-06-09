@@ -46,8 +46,16 @@ class VisitsController < ApplicationController
       end
    end
 
-    post '/visits/:id/delete' do
-
+    delete '/visits/:id/delete' do
+      if logged_in?
+        @visit = Visit.find_by_id(params[:id])
+            if @visit && @visit.user == current_user
+              @visit.delete
+            end
+        redirect '/visits'
+      else
+        redirect '/login'
+      end
     end
 
 end
