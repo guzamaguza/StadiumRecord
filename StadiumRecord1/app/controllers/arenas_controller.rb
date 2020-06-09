@@ -155,7 +155,19 @@ class ArenasController < ApplicationController
         }
   }
 
+      @arenas.each_with_index do |arena, index|
+          input_arr = [index, arena[0], arena[1], arena[2]]
+          Arena.new(arena)
+      end
+
       erb :'/arenas/index'
+    end
+
+    get '/stadiums/show' do
+        @user = User.find_by(id: session[:user_id])
+        @arenas = Arena.all
+
+        erb :'/stadiums/show'
     end
 
 end
