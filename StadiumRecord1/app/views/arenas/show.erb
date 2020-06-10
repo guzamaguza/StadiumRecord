@@ -1,17 +1,11 @@
 <h2>Your Stadiums You've Visited:</h2>
 
-<% @arenas.each do |arena| %>
-  if arena == @user.arenas.each {|x| arena == x }
-      <h3> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=value[0]%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
-  else
-      <h3> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=value[0]%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
-  end
-<% end %>
-
-
-<% @user.arenas.each_with_index do |visit, index| %>
-  <h3> <%=index + 1%>) Stadium: <%=visit.arena %></h3>
-  <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
-
-  <br>
+<% @arenas.each_with_index do |arena,index| %>
+    <% @user.visits.each do |visit| %>
+      <% if arena == visit.arena %>
+          <h3> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=arena[0]%>"><%=arena[1][:name]%></a>, <%=arena[1][:location]%>, <%=arena[1][:team]%> </h3>
+      <% else %>
+          <h3> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=arena[0]%>"><%=arena[1][:name]%></a>, <%=arena[1][:location]%>, <%=arena[1][:team]%> </h3>
+      <% end %>
+    <% end %>
 <% end %>

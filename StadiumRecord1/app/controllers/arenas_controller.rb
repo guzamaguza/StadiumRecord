@@ -156,18 +156,24 @@ class ArenasController < ApplicationController
   }
 
       @arenas.each_with_index do |arena, index|
-          input_arr = [index, arena[0], arena[1], arena[2]]
-          Arena.new(arena)
+          #arena[1][:name], arena[1][:location], arena[1][:team]
+          #binding.pry
+
+          Arena.new(arena[1])
       end
 
       erb :'/arenas/index'
     end
 
-    get '/stadiums/show' do
-        @user = User.find_by(id: session[:user_id])
+    get '/arenas/show' do
+      if logged_in?
+        @user = User.all.last
         @arenas = Arena.all
-
-        erb :'/stadiums/show'
+        #binding.pry
+        erb :'/arenas/show'
+      else
+        redirect '/login'
+      end
     end
 
 end
