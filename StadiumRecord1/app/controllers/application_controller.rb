@@ -1,5 +1,6 @@
 require './config/environment'
 require './app/models/user'
+require './db/data/list_of_stadiums'
 
 class ApplicationController < Sinatra::Base
 
@@ -11,6 +12,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    #create arena objects on welcoming user (no seeding necessary)
+    @@arena_hash.each_with_index do |arena, index|
+        Arena.new(arena[1])
+    end
 
     erb :welcome
   end
