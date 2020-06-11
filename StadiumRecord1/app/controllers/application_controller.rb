@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
     @@arena_hash.each_with_index do |arena, index|
         Arena.new(arena[1])
     end
+    @arenas = Arena.all
 
     erb :welcome
   end

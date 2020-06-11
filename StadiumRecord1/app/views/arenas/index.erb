@@ -2,6 +2,6 @@
 
 <img src="https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640" style="float:center;height: auto;width: auto; max-width: 1500px;max-height: 1500px;">
 
-<% Arena.all.each_with_index do |value, index| %>
+<% @arenas.each_with_index do |value, index| %>
   <h3> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[0]%>"><%=value[:name]%></a>, <%=value[:location]%>, <%=value[:team]%> </h3>
 <% end %>

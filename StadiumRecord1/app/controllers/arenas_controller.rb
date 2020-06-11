@@ -6,6 +6,7 @@ class ArenasController < ApplicationController
       #@arenas.each_with_index do |arena, index|
       #    Arena.new(arena[1])
       #end
+      @arenas = Arena.all
 
       erb :'/arenas/index'
     end
