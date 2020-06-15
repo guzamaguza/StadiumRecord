@@ -8,7 +8,7 @@
   <label>Select a Stadium:</label>
 
     <div class= "row">
-      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet">
       <ul class="columns" data-columns="2">
         <% @arenas.each do |arena| %>
             <li><input type="radio" name="arena" id="<%= arena.name %>" value="<%= arena.name %>"><%= arena.name %><br></li>

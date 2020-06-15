@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 gem 'w3c_validators'
+gem 'sinatra-flash'
 
 group :test do
   gem 'rspec'

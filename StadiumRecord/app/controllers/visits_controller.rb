@@ -1,3 +1,5 @@
+require 'sinatra/flash'
+
 class VisitsController < ApplicationController
     get '/visits' do
       if logged_in?
@@ -12,8 +14,8 @@ class VisitsController < ApplicationController
     end
 
     get '/visits/new' do
-      @arenas = Arena.all
-      erb :'/visits/new'
+        @arenas = Arena.all
+        erb :'/visits/new'
     end
 
     get '/visits/show' do
@@ -32,6 +34,7 @@ class VisitsController < ApplicationController
       #arena and date as values
       if logged_in?
         if params[:date] == "" || params[:arena] == ""
+          @@flash[:error] = "You did not enter a date, a stadium, or both!"
           redirect to "/visits/new"
         else
           @visit = current_user.visits.build(params)
