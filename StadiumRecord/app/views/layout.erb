@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+
+<html>
+  <head>
+
+    <title>Stadium Record</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <style>
+          .container {
+            /*
+            position: relative;
+            margin: auto;
+            */
+          }
+
+          .info {
+            /*
+            position: fixed;
+            */
+          }
+
+          footer {
+            /*
+            position: absolute;
+            bottom: 5px;
+            height:75px;
+            width:100%;
+            padding-top: 20px;
+            margin-top: 20px; /* space between content and footer */
+
+          }
+
+          .copyright {
+            position: fixed;
+            left: 75%;
+            bottom: 0%;
+
+          }
+
+          .yield {
+            /*
+            padding-bottom: 10px;
+            */
+          }
+
+          .menu {
+            font-size: 15px;
+          }
+
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="info">
+        <h1>Stadium Record</h1>
+
+          <% if logged_in? %>
+            <h3>Welcome, <%=current_user.username %>!</h3>
+            <table class="menu">
+              <tr>
+                <th><a href="/visits/new"> New Visit Entry </a></th>
+                <th>&nbsp;&nbsp;&nbsp;</th>
+                <th><a href="/arenas"> List of Stadiums </a></th>
+                <th>&nbsp;&nbsp;&nbsp;</th>
+                <th><a href="/visits"> Your Visits </a></th>
+                <th>&nbsp;&nbsp;&nbsp;</th>
+                <th><a href="/arenas/show"> Your Stadiums </a></th>
+                <th>&nbsp;&nbsp;&nbsp;</th>
+                <th><a href="/logout"> Log Out</a><br></th>
+              </tr>
+            <table>
+          <%end %>
+       </div>
+
+       <div class="yield">
+         <%= yield %>
+       </div>
+
+    </div>
+
+    <footer>
+      <div class="copyright"><p>©2020 3MG Group LLC All Rights Reserved&nbsp;&nbsp;</p></div>
+    </footer>
+  </body>
+
+</html>
