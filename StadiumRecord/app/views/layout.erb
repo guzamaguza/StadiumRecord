@@ -48,6 +48,22 @@
             font-size: 15px;
           }
 
+          .vl_left {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            border-right: 6px solid green;
+            height: 100%;
+          }
+
+          .vl_right {
+              position: absolute;
+              right: 5px;
+              top: 5px;
+              border-right: 6px solid green;
+              height: 100%;
+          }
+
     </style>
 
   </head>
@@ -77,12 +93,14 @@
 
        <div class="yield">
 
-
          <%= yield %>
 
        </div>
-
     </div>
+
+    <div class="vl_left"></div>
+
+    <div class="vl_right"></div>
 
     <footer>
       <div class="copyright"><p>©2020 3MG Group LLC All Rights Reserved&nbsp;&nbsp;</p></div>
