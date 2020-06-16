@@ -8,9 +8,9 @@
   <label>Select a Stadium:</label>
 
 
-  <% if @missing_message %>
+  <% if @error_message %>
     <div id="success" style="border: 2px solid green;">
-    <%= @missing_message %>
+    <%= @error_message %>
     </div>
   <% end %>
 
