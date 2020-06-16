@@ -7,6 +7,13 @@
 
   <label>Select a Stadium:</label>
 
+
+  <% if @missing_message %>
+    <div id="success" style="border: 2px solid green;">
+    <%= @missing_message %>
+    </div>
+  <% end %>
+
     <div class= "row">
       <link rel="stylesheet">
       <ul class="columns" data-columns="2">

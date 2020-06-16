@@ -1,6 +1,7 @@
 require 'sinatra/flash'
 
 class VisitsController < ApplicationController
+
     get '/visits' do
       if logged_in?
 
@@ -14,6 +15,7 @@ class VisitsController < ApplicationController
     end
 
     get '/visits/new' do
+        @error_message = session[:missing_message]
         @arenas = Arena.all
         erb :'/visits/new'
     end
@@ -22,6 +24,8 @@ class VisitsController < ApplicationController
       #shows all the user's visits
       if logged_in?
         #@user = User.find_by_slug(params[:slug])
+        #session[:success_message] = nil
+        @error_message = session[:missing_message]
 
         erb :'/visits/show'
       else
@@ -34,7 +38,7 @@ class VisitsController < ApplicationController
       #arena and date as values
       if logged_in?
         if params[:date] == "" || params[:arena] == ""
-          @@flash[:error] = "You did not enter a date, a stadium, or both!"
+          session[:missing_message] = "You Failed to Enter in a Date or Stadium!"
           redirect to "/visits/new"
         else
           @visit = current_user.visits.build(params)
