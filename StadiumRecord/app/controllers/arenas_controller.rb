@@ -11,6 +11,11 @@ class ArenasController < ApplicationController
     get '/arenas/show' do
       if logged_in?
         @user = User.all.last
+        @visited_arenas = []
+        @user.visits.each do |visit|
+            @visited_arenas << visit.arena
+        end
+
         @arenas = Arena.all
         erb :'/arenas/show'
       else

@@ -42,7 +42,7 @@ class VisitsController < ApplicationController
           if @visit.save
             redirect "/visits"
           else
-            redirect "/tweets/new"
+            redirect "/visits/new"
           end
         end
       else
