@@ -1,7 +1,6 @@
 require './config/environment'
 require './app/models/user'
 require './db/data/list_of_stadiums'
-require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -14,7 +13,6 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @arenas = Arena.all
-    @@flash = {}
     erb :welcome
   end
 
