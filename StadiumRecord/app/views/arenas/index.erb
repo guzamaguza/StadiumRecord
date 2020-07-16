@@ -4,5 +4,8 @@
 
 <% @arenas.each_with_index do |value, index| %>
   <% index == 30 ? break : "" %>
-  <h3> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[0]%>"><%=value[:name]%></a>, <%=value[:location]%>, <%=value[:team]%> </h3>
+
+
+
+  <h3> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[:name].gsub(/\s+/, '_')%>"><%=value[:name]%></a>, <%=value[:location]%>, <%=value[:team]%> </h3>
 <% end %>
