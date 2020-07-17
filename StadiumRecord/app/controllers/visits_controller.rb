@@ -20,6 +20,13 @@ class VisitsController < ApplicationController
         erb :'/visits/new'
     end
 
+    get '/visits/:id' do
+      @visit = Visit.find_by_id(params[:id])
+      @user = User.find_by(id: session[:user_id])
+
+      erb :'/visits/show'
+    end
+
 =begin
     get '/visits/index' do
       #shows all the user's visits
@@ -69,12 +76,12 @@ class VisitsController < ApplicationController
 
    patch '/visits/:id' do
      if logged_in?
-       if params[:date] == ""
+       if params[:date] == "" || params[:arena] == ""
          redirect "/visits/#{params[:id]}/edit"
        else
          @visit = Visit.find_by_id(params[:id])
          if @visit && @visit.user == current_user
-           if @visit.update(date: params[:date])
+           if @visit.update(date: params[:date]) && @visit.update(arena: params[:arena])
              redirect "/visits/#{@visit.id}"
            else
              redirect "/visits/#{@visit.id}/edit"

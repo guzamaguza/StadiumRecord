@@ -1,0 +1,14 @@
+
+<h3> Stadium: <%= @visit.arena %></h3>
+<h3> Date: <%= @visit.date %> </h3>
+
+<form method="post" action="/visits/<%= @visit.id %>/delete">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Visit">
+</form>
+
+<br>
+
+<form method="get" action="/visits/<%= @visit.id %>/edit">
+   <input type="submit" value="Edit Visit">
+</form>

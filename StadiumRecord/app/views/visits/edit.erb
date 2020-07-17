@@ -1,10 +1,10 @@
 <h2> Edit a Single Visit... </h2>
 
 <form method="post" action="/visits/<%=@visit.id%>">
-
-    <input type="text" name="date" value="<%= @visit.date %>">
+<!-- sending new "date" and "arena" as a patch request to the controller-->
     <input id="hidden" type="hidden" name="_method" value="PATCH">
-<br>
+    <input type="text" name="date" value="<%= @visit.date %>">
+    <br>
     <label>Select the Updated/Corrected Stadium:</label>
 
     <% if @error_message %>
