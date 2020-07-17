@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "arena"
     t.string "date"
     t.integer "user_id"
+    t.integer "arena_id"
   end
 
 end

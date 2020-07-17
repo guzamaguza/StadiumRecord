@@ -4,6 +4,7 @@ class CreateVisits < ActiveRecord::Migration[6.0]
       t.string :arena
       t.string :date
       t.integer :user_id
+      t.integer :arena_id
     end
   end
 end
