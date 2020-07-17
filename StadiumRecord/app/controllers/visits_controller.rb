@@ -8,7 +8,7 @@ class VisitsController < ApplicationController
         @visits = Visit.all
         @user = User.find_by(id: session[:user_id])
 
-        erb :'/visits/show'
+        erb :'/visits/index'
       else
         redirect '/login'
       end
@@ -20,16 +20,19 @@ class VisitsController < ApplicationController
         erb :'/visits/new'
     end
 
-    get '/visits/show' do
+=begin
+    get '/visits/index' do
       #shows all the user's visits
       if logged_in?
 
-        erb :'/visits/show'
+        erb :'/visits/index'
       else
         redirect '/login'
       end
 
     end
+=end
+
 
     post '/visits/new' do
       #arena and date as values
@@ -48,6 +51,41 @@ class VisitsController < ApplicationController
       else
         redirect '/visits'
       end
+   end
+
+   get '/visits/:id/edit' do
+       if logged_in?
+         @visit = Visit.find_by_id(params[:id])
+         if @visit && @visit.user == current_user
+           @arenas = Arena.all
+           erb :'/visits/edit'
+         else
+           redirect '/visits'
+         end
+       else
+         redirect '/login'
+       end
+   end
+
+   patch '/visits/:id' do
+     if logged_in?
+       if params[:date] == ""
+         redirect "/visits/#{params[:id]}/edit"
+       else
+         @visit = Visit.find_by_id(params[:id])
+         if @visit && @visit.user == current_user
+           if @visit.update(date: params[:date])
+             redirect "/visits/#{@visit.id}"
+           else
+             redirect "/visits/#{@visit.id}/edit"
+           end
+         else
+           redirect '/visits'
+         end
+       end
+     else
+       redirect to '/login'
+     end
    end
 
     delete '/visits/:id/delete' do

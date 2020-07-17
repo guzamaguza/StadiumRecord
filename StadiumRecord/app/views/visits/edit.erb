@@ -1,0 +1,32 @@
+<h2> Edit a Single Visit... </h2>
+
+<form method="post" action="/visits/<%=@visit.id%>">
+
+    <input type="text" name="date" value="<%= @visit.date %>">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+<br>
+    <label>Select the Updated/Corrected Stadium:</label>
+
+    <% if @error_message %>
+      <div id="success" style="border: 2px solid green;">
+      <%= @error_message %>
+      <% @error_message.clear%>
+      </div>
+    <% end %>
+
+      <% q = 0 %>
+      <div class= "row">
+        <link rel="stylesheet">
+        <ul class="columns" data-columns="2">
+          <% @arenas.each do |arena| %>
+              <li><input type="radio" name="arena" id="<%= arena.name %>" value="<%= arena.name %>"><%= arena.name %><br></li>
+              <% q += 1 %>
+              <% if q == 30 %>
+                <% break %>
+              <% end %>
+          <% end %>
+        </ul>
+      </div>
+
+  <input type="submit" value="submit">
+</form>
