@@ -7,7 +7,8 @@ end
 #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
 #config.i18n.default_locale = :de
 
-use Rack::MethodOverride
+#Mount Controllers below. Below is also used to
+use Rack::MethodOverride  #allows us to send patch, delete, etc. requests
 use VisitsController
 use ArenasController
 use UsersController

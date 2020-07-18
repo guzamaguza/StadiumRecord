@@ -1,24 +1,16 @@
 # StadiumRecord
-This Sinatra application allows users to keep track of the MLB stadiums they have visited.
 
 README
 
 DESCRIPTION:
-    This CLI Project assists potential college students in choosing a college that fits their ACT score, financial profile, preferences  for public/private, etc. This project will display a list of colleges that fit the user's preferences/profile.
 
-
-INSTALL INSTRUCTIONS:
-    1) Type "git clone https://github.com/guzamaguza/.git" in Learn IDE
-    2) Type "cd college_matcher"
-    3) Type "ruby bin/college_matcher" in order to load the Command Line Interface.
-    4) Find matching schools and have fun!
+    This Sinatra Application allows members to keep track of the MLB stadiums they have visited. A lot of baseball fans have the goal of visiting every Major League Baseball stadium. In total there are 30 current stadiums and this application keeps a record of the ones they have visited and the ones they have not.
 
 CONTRIBUTORS GUIDE:
 
     Mark Guza - Software Programmer
 
 LICENSE FOR CODE:
-
 
     Copyright 2020 Mark Guza
 

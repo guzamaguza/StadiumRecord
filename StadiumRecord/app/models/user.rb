@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :visits
   has_many :arenas, through: :visits
-  has_secure_password
+  has_secure_password  #bcrypt macro to store salted/hashed pwd
 
   def slug
     username.downcase.gsub(" ","-")

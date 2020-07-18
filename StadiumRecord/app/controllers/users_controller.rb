@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+=begin
   get '/users/:slug' do
     @user = User.find_by_slug(params[:slug])
     erb :'users/show'
   end
+=end
 
   get '/signup' do
     if !logged_in?
@@ -14,7 +16,10 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    #can't use mass assignment here
     if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      redirect to '/signup'
+    elsif params[:username] == User.username.each {|x| x}
       redirect to '/signup'
     else
       user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
@@ -33,8 +38,9 @@ class UsersController < ApplicationController
 
   post '/login' do
     user = User.find_by(:username => params[:username])
-    if user && user.authenticate(:password => params[:password])
+    if user && user.authenticate(:password => params[:password]) #authenticate compares pwd to bcrypt salted/hashed pwd
       session[:user_id] = user.id
+
       redirect to "/visits"
     else
       redirect to '/signup'
