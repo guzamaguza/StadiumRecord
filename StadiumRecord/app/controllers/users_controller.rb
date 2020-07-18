@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       redirect to '/signup'
     else
       @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
 
       if @user.save
         flash[:success_newuser] = "New User Created Successfully!"
@@ -34,6 +34,8 @@ class UsersController < ApplicationController
 
         redirect "/signup"
       end
+
+      redirect "/signup"
     end
   end
 
