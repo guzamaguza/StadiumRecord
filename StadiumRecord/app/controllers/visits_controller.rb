@@ -44,22 +44,17 @@ class VisitsController < ApplicationController
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-        if params[:date] == "" || params[:date] == nil
-          flash[:error_emptydate] = "You Failed to Enter in a Date!"
-
-          redirect to "/visits/new"
-        elsif params[:arena] == "" || params[:arena] == nil
-          flash[:error_emptyarena] = "You Failed to Enter in a Stadium!"
-
-          redirect to "/visits/new"
-        else
           @visit = current_user.visits.build(params)
+          #by saving it below it triggers validations
           if @visit.save
+            flash[:success_newvisit] = "New Visit Created Successfully!"
+
             redirect "/visits"
           else
+            flash[:error_newvisit] = "New Visit Creation Failed: #{@visit.errors.full_messages.to_sentence}"
+
             redirect "/visits/new"
           end
-        end
       else
         redirect '/visits'
       end

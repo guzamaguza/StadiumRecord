@@ -21,13 +21,19 @@ class UsersController < ApplicationController
       flash[:error_missinginfo] = "Make Sure to Fill In All Boxes to Signup!"
 
       redirect to '/signup'
-    #elsif params[:username] == User.username.each {|x| x}
-    #  redirect to '/signup'
     else
-      user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
+      @user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
       session[:user_id] = user.id
 
-      redirect to '/visits'
+      if @user.save
+        flash[:success_newuser] = "New User Created Successfully!"
+
+        redirect "/visits"
+      else
+        flash[:error_newuser] = "New User Creation Failed: #{@user.errors.full_messages.to_sentence}"
+
+        redirect "/signup"
+      end
     end
   end
 

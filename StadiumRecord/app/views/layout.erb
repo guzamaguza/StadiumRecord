@@ -89,12 +89,20 @@
            <h3 style="color:red;"> <%= flash[:error_missinginfo] %> </h3>
        <% end %>
 
-       <% if flash[:error_emptydate] %>
-           <h3 style="color:red;"> <%= flash[:error_emptydate] %> </h3>
+       <% if flash[:error_newvisit] %>
+           <h3 style="color:red;"> <%= flash[:error_newvisit] %> </h3>
        <% end %>
 
-       <% if flash[:error_emptyarena] %>
-           <h3 style="color:red;"> <%= flash[:error_emptyarena] %> </h3>
+       <% if flash[:success_newvisit] %>
+           <h3 style="color:green;"> <%= flash[:success_newvisit] %> </h3>
+       <% end %>
+
+       <% if flash[:success_newuser] %>
+           <h3 style="color:green;"> <%= flash[:success_newuser] %> </h3>
+       <% end %>
+
+       <% if flash[:error_newuser] %>
+           <h3 style="color:red;"> <%= flash[:error_newuser] %> </h3>
        <% end %>
 
        <div class="yield">

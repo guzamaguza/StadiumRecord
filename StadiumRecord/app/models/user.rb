@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   has_many :arenas, through: :visits
   has_secure_password  #bcrypt macro to store salted/hashed pwd
 
+  #ActiveRecord validations
+  validates :username, :email, presence: true
+  validates :username, uniqueness: true
+  #has_secure_password already has a built in validator for password
+
   def slug
     username.downcase.gsub(" ","-")
   end
