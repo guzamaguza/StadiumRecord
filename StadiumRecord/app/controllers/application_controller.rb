@@ -9,13 +9,16 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "stadiumrecord_secret"
+    register Sinatra::Flash
   end
 
   get '/' do
-    if logged_in? do
+    if logged_in?
+      @user = current_user
       @arenas = Arena.all
       erb :'/visits/index'
     else
+      @user = current_user
       @arenas = Arena.all
       erb :welcome
     end

@@ -2,7 +2,7 @@
 
 <form method="post" action="/visits/<%=@visit.id%>">
 <!-- sending new "date" and "arena" as a patch request to the controller-->
-    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <input id="hidden" type="hidden" name="_method" value="PATCH"> <!-- This overrides to send to patch route -->
     <input type="text" name="date" value="<%= @visit.date %>">
     <br>
     <label>Select the Updated/Corrected Stadium:</label>

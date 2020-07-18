@@ -15,7 +15,7 @@ class VisitsController < ApplicationController
     end
 
     get '/visits/new' do
-        @error_message = session[:error_message]
+        #@error_message = session[:error_message]
         @arenas = Arena.all
         erb :'/visits/new'
     end
@@ -44,8 +44,13 @@ class VisitsController < ApplicationController
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-        if params[:date] == "" || params[:arena] == ""
-          session[:error_message] = "You Failed to Enter in a Date or Stadium!"
+        if params[:date] == "" || params[:date] == nil
+          flash[:error_emptydate] = "You Failed to Enter in a Date!"
+
+          redirect to "/visits/new"
+        elsif params[:arena] == "" || params[:arena] == nil
+          flash[:error_emptyarena] = "You Failed to Enter in a Stadium!"
+
           redirect to "/visits/new"
         else
           @visit = current_user.visits.build(params)

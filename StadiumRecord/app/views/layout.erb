@@ -77,6 +77,26 @@
           <%end %>
        </div>
 
+       <% if flash[:error_invalidcred] %>
+           <h3 style="color:red;"> <%= flash[:error_invalidcred] %> </h3>
+       <% end %>
+
+       <% if flash[:success_login] %>
+           <h3 style="color:green;"> <%= flash[:success_login] %> </h3>
+       <% end %>
+
+       <% if flash[:error_missinginfo] %>
+           <h3 style="color:red;"> <%= flash[:error_missinginfo] %> </h3>
+       <% end %>
+
+       <% if flash[:error_emptydate] %>
+           <h3 style="color:red;"> <%= flash[:error_emptydate] %> </h3>
+       <% end %>
+
+       <% if flash[:error_emptyarena] %>
+           <h3 style="color:red;"> <%= flash[:error_emptyarena] %> </h3>
+       <% end %>
+
        <div class="yield">
 
          <%= yield %>
