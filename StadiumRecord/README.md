@@ -4,7 +4,7 @@ README
 
 DESCRIPTION:
 
-    This Sinatra Application allows members to keep track of the MLB stadiums they have visited. A lot of baseball fans have the goal of visiting every Major League Baseball stadium. In total there are 30 current stadiums and this application keeps a record of the ones they have visited and the ones they have not.
+    This Sinatra Application allows site members to keep track of the MLB stadiums they have visited. A common goal among many hardcore baseball fans is to visit every Major League Baseball stadium at least once. In total there are 30 current Major League Baseball stadiums and this application keeps a record of the ones users have visited and the ones they have not. The site displays the date and stadium of each visit and color-codes the stadiums visited in green and the ones that haven't been visited yet in red. Once a user has visited all 30 stadiums, there is a fun message displayed in congratulations.
 
 CONTRIBUTORS GUIDE:
 
