@@ -24,6 +24,15 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/list_of_arenas' do
+      if logged_in?
+          @arenas = @@arena_hash
+          erb :list_of_arenas
+      else
+          redirect '/'
+      end
+  end
+
   helpers do
 
     #returns a boolean if the user is loggedIn or not (? means boolean return)
