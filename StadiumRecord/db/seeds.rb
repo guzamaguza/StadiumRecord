@@ -152,6 +152,7 @@
   }
 }
 
+=begin
 @arenas.each do |arena, arena_hash|
   p = Arena.new
   p.name = arena
@@ -160,3 +161,4 @@
   end
   p.save
 end
+=end

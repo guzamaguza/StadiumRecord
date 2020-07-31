@@ -84,7 +84,7 @@ class VisitsController < ApplicationController
        else
          @visit = Visit.find_by_id(params[:id])
          if @visit && @visit.user == current_user
-           if @visit.update(date: params[:date]) && @visit.update(arena: params[:arena])
+           if @visit.update(date: params[:date]) && @visit.arena.update(name: params[:arena])
              redirect "/visits/#{@visit.id}"
            else
              redirect "/visits/#{@visit.id}/edit"
