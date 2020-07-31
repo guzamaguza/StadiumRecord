@@ -10,13 +10,9 @@ class ArenasController < ApplicationController
 
     get '/arenas/show' do
       if logged_in?
-        @user = User.all.last
-        @visited_arenas = []
-        @user.visits.each do |visit|
-            @visited_arenas << visit.arena
-        end
+        @user = current_user
+        @arenas = @user.arenas
 
-        @arenas = @@arena_hash
         erb :'/arenas/show'
       else
         redirect '/login'
