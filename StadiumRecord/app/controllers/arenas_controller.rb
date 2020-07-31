@@ -3,7 +3,7 @@ require './config/environment'
 class ArenasController < ApplicationController
 
     get '/arenas' do
-      @arenas = Arena.all
+      @arenas = @@arena_hash
 
       erb :'/arenas/index'
     end
@@ -16,7 +16,7 @@ class ArenasController < ApplicationController
             @visited_arenas << visit.arena
         end
 
-        @arenas = Arena.all
+        @arenas = @@arena_hash
         erb :'/arenas/show'
       else
         redirect '/login'

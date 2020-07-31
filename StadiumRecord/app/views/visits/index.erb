@@ -8,6 +8,7 @@
 <% else %>
 
     <% @user.visits.each_with_index do |visit, index| %>
+
       <h3> <%=index + 1%>) Stadium: <%=visit.arena.name %></h3>
       <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
 

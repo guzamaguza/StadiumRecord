@@ -15,11 +15,11 @@ class ApplicationController < Sinatra::Base
   get '/' do
     if logged_in?
       @user = current_user
-      @arenas = Arena.all
+      @arenas = @@arena_hash
       erb :'/visits/index'
     else
       @user = current_user
-      @arenas = Arena.all
+      @arenas = @@arena_hash
       erb :welcome
     end
   end

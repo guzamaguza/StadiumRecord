@@ -16,7 +16,7 @@ class VisitsController < ApplicationController
 
     get '/visits/new' do
         #@error_message = session[:error_message]
-        @arenas = Arena.all
+        @arenas = @@arena_hash
         erb :'/visits/new'
     end
 
@@ -44,7 +44,10 @@ class VisitsController < ApplicationController
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-          new_arena = Arena.find_by(name: params[:arena])
+
+
+
+          new_arena = Arena.new(name: params[:arena], location: params[:location], team: params[:team])
           new_visit = {:date => params[:date], :user_id => current_user, :arena_id => new_arena.id}
           @visit = current_user.visits.build(new_visit)
           @visit.arena = new_arena

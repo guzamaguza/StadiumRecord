@@ -1,5 +1,5 @@
 
-@arenas = {
+@@arenas_hash = {
   "Angel_Stadium" => {
     :name => "Angel Stadium",
     :location => "Anaheim CA",
