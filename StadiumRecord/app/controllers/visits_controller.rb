@@ -44,7 +44,10 @@ class VisitsController < ApplicationController
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-          @visit = current_user.visits.build(params)
+          new_arena = Arena.find_by(name: params[:arena])
+          new_visit = {:date => params[:date], :user_id => current_user, :arena_id => new_arena.id}
+          @visit = current_user.visits.build(new_visit)
+          @visit.arena = new_arena
           #by saving it below it triggers validations
           if @visit.save
             flash[:success_newvisit] = "New Visit Created Successfully!"

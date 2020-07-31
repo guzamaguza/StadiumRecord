@@ -20,7 +20,7 @@
       <link rel="stylesheet">
       <ul class="columns" data-columns="2">
         <% @arenas.each do |arena| %>
-            <li><input type="radio" name="arena" id="<%= arena.name %>" value="<%= arena.name %>"><%= arena.name %><br></li>
+            <li><input type="radio" name="arena" id="<%= arena %>" value="<%= arena.name %>"><%= arena.name %><br></li>
             <% q += 1 %>
             <% if q == 30 %>
               <% break %>

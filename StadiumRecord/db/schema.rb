@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "visits", force: :cascade do |t|
-    t.string "arena"
     t.string "date"
     t.integer "user_id"
     t.integer "arena_id"
