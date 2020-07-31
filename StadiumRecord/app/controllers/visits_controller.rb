@@ -44,15 +44,17 @@ class VisitsController < ApplicationController
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-
-
-
-          new_arena = Arena.new(name: params[:arena], location: params[:location], team: params[:team])
-          new_visit = {:date => params[:date], :user_id => current_user, :arena_id => new_arena.id}
+binding.pry
+          new_arena = {:name => params[:name], :location => params[:location], :team => params[:team]}
+          @arena = Arena.new(new_arena)
+          @arena.save
+          #binding.pry
+          new_visit = {:date => params[:date], :user_id => current_user, :arena_id => @arena.id}
           @visit = current_user.visits.build(new_visit)
-          @visit.arena = new_arena
+
           #by saving it below it triggers validations
           if @visit.save
+  #binding.pry
             flash[:success_newvisit] = "New Visit Created Successfully!"
 
             redirect "/visits"

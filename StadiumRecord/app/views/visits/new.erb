@@ -21,9 +21,10 @@
       <ul class="columns" data-columns="2">
         <% @arenas.each do |arena| %>
 
-            <li><input type="radio" name="arena" id="" value="<%arena[1][:name]%>"> <%= arena[1][:name]%> <br></li>
-            <input id="hidden" type="hidden" name="location" value="<%= arena[1][:location]%>">
-            <input id="hidden" type="hidden" name="team" value="<%= arena[1][:team]%>">
+            <li><input type="radio" name="name" id="name" value="<%arena[1][:name]%>"> <%= arena[1][:name]%> <br></li>
+            <input id="hidden" type="hidden" name="location" id="location" value="<%= arena[1][:location]%>">
+            <input id="hidden" type="hidden" name="team" id="team" value="<%= arena[1][:team]%>">
+
             <% q += 1 %>
             <% if q == 30 %>
               <% break %>
