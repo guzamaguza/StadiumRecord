@@ -27,34 +27,26 @@ class VisitsController < ApplicationController
       erb :'/visits/show'
     end
 
-=begin
-    get '/visits/index' do
-      #shows all the user's visits
-      if logged_in?
-
-        erb :'/visits/index'
-      else
-        redirect '/login'
-      end
-
-    end
-=end
-
-
     post '/visits/new' do
       #arena and date as values
       if logged_in?
-binding.pry
-          new_arena = {:name => params[:name], :location => params[:location], :team => params[:team]}
-          @arena = Arena.new(new_arena)
+          @new_arena = {}
+
+          @@arena_hash.each do |a|
+            if a[0] == params[:name].gsub(/\s/,'_')
+              @new_arena = {:name => params[:name], :location => a[1][:location], :team => a[1][:team]}
+            end
+          end
+
+          @arena = Arena.new(@new_arena)
           @arena.save
-          #binding.pry
+
           new_visit = {:date => params[:date], :user_id => current_user, :arena_id => @arena.id}
           @visit = current_user.visits.build(new_visit)
 
           #by saving it below it triggers validations
           if @visit.save
-  #binding.pry
+
             flash[:success_newvisit] = "New Visit Created Successfully!"
 
             redirect "/visits"
