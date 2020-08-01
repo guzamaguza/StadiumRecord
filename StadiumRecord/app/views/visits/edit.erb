@@ -2,11 +2,12 @@
 
 <form method="post" action="/visits/<%=@visit.id%>">
 <!-- sending new "date" and "arena" as a patch request to the controller-->
+    <label>Enter the Updated Date:</label>
     <input id="hidden" type="hidden" name="_method" value="PATCH"> <!-- This overrides to send to patch route -->
     <input type="text" name="date" value="<%= @visit.date %>">
     <br>
-    <label>Select the Updated/Corrected Stadium:</label>
 
+<label>Select the Updated/Corrected Stadium:</label>
     <% if @error_message %>
       <div id="success" style="border: 2px solid green;">
       <%= @error_message %>
@@ -18,8 +19,8 @@
       <div class= "row">
         <link rel="stylesheet">
         <ul class="columns" data-columns="2">
-          <% @arenas.each do |arena| %>
-              <li><input type="radio" name="arena" id="<%= arena.name %>" value="<%= arena.name %>"><%= arena.name %><br></li>
+          <% @@arena_hash.each do |arena| %>
+              <li><input type="radio" name="name" id="name" value="<%=arena[1][:name]%>"> <%= arena[1][:name]%> <br></li>
               <% q += 1 %>
               <% if q == 30 %>
                 <% break %>

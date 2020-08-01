@@ -16,7 +16,7 @@ class VisitsController < ApplicationController
 
     get '/visits/new' do
         #@error_message = session[:error_message]
-        @arenas = @@arena_hash
+
         erb :'/visits/new'
     end
 
@@ -64,7 +64,8 @@ class VisitsController < ApplicationController
        if logged_in?
          @visit = Visit.find_by_id(params[:id])
          if @visit && @visit.user == current_user
-           @arenas = Arena.all
+           @user = current_user
+           @arenas = @user.arenas.all
            erb :'/visits/edit'
          else
            redirect '/visits'
@@ -76,12 +77,12 @@ class VisitsController < ApplicationController
 
    patch '/visits/:id' do
      if logged_in?
-       if params[:date] == "" || params[:arena] == ""
+       if params[:date] == "" || params[:name] == ""
          redirect "/visits/#{params[:id]}/edit"
        else
          @visit = Visit.find_by_id(params[:id])
          if @visit && @visit.user == current_user
-           if @visit.update(date: params[:date]) && @visit.arena.update(name: params[:arena])
+           if @visit.update(date: params[:date]) && @visit.arena.update(name: params[:name])
              redirect "/visits/#{@visit.id}"
            else
              redirect "/visits/#{@visit.id}/edit"

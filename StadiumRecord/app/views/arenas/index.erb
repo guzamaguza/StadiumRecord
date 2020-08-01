@@ -2,20 +2,27 @@
 
 <h4>Legend: <span style="color:green"> Visited </span> / <span style="color:red">  Not Visited  </span> </h4>
 
+<% if @arenas.length == 0 %>
 
-<% green = 0 %>
+    <h3 style="color:red"> You haven't visited any stadiums! </h3>
+    <h3 style="color:red"> Click "New Visit Entry" to submit a new entry! </h3>
 
-<% @@arena_hash.each_with_index do |value, index| %>
-  <% @arenas.each do |aren| %>
-      <% if value[1][:name] == aren.name %>
-          <h3 style="color:green"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
-      <% else %>
-          <h3 style="color:red"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
-          <% green = green + 1 %>
+<% else %>
+
+    <% green = 0 %>
+    <% @@arena_hash.each_with_index do |value, index| %>
+      <% @arenas.each do |aren| %>
+          <% if value[1][:name] == aren.name %>
+              <h3 style="color:green"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
+          <% else %>
+              <h3 style="color:red"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
+              <% green = green + 1 %>
+          <% end %>
       <% end %>
-  <% end %>
-<% end %>
+    <% end %>
 
-<% if green == 30 %>
-    <h3><span style="border: 2px solid green;"> !!!!!!!Congrats, you have visited all the stadiums!!!!!!!!!!! </span></h3>
+    <% if green == 30 %>
+        <h3><span style="border: 2px solid green;"> !!!!!!!Congrats, you have visited all the stadiums!!!!!!!!!!! </span></h3>
+    <% end %>
+
 <% end %>
