@@ -1,30 +1,21 @@
-<h2>All Stadiums: </h2>
-
-<img src="https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640" style="float:center;height: auto;width: auto; max-width: 1500px;max-height: 1500px;">
-
-<% @arenas.each do |value, index| %>
-  <h3> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[:name].gsub(/\s+/, '_')%>"><%=value[:name]%></a>, <%=value[:location]%>, <%=value[:team]%> </h3>
-<% end %>
-
 <h2>Your Stadiums You've Visited:</h2>
 
 <h4>Legend: <span style="color:green"> Visited </span> / <span style="color:red">  Not Visited  </span> </h4>
 
-<% k = 0 %>
 
-  <% @arenas.each_with_index do |arena,index| %>
+<% green = 0 %>
 
-    <% index == 30 ? break : "" %>
-
-      <% if  @visited_arenas.uniq.include?(arena[:name]) %>
-          <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=arena[0]%>"><%=arena[:name]%></a>, <%=arena[:location]%>, <%=arena[:team]%> </h3>
-          <% k += 1 %>
+<% @@arena_hash.each_with_index do |value, index| %>
+  <% @arenas.each do |aren| %>
+      <% if value[1][:name] == aren.name %>
+          <h3 style="color:green"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
       <% else %>
-          <h3 style="color:red"> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=arena[0]%>"><%=arena[:name]%></a>, <%=arena[:location]%>, <%=arena[:team]%> </h3>
+          <h3 style="color:red"> <%=index + 1%>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
+          <% green = green + 1 %>
       <% end %>
+  <% end %>
+<% end %>
 
-    <% end %>
-
-    <% if k == 30 %>
-        <h3><span style="border: 2px solid green;"> !!!!!!!Congrats, you have visited all the stadiums!!!!!!!!!!! </span></h3>
-    <% end %>
+<% if green == 30 %>
+    <h3><span style="border: 2px solid green;"> !!!!!!!Congrats, you have visited all the stadiums!!!!!!!!!!! </span></h3>
+<% end %>

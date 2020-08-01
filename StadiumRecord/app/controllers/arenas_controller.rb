@@ -3,9 +3,10 @@ require './config/environment'
 class ArenasController < ApplicationController
 
     get '/arenas/index' do
-      @arenas = @@arena_hash
+      @user = current_user
+      @arenas = @user.arenas
 
-      erb :'/arenas/index'
+      erb :'arenas/index'
     end
 
 end
