@@ -12,7 +12,6 @@
     <% green = 0 %>
     <% @@arena_hash.each_with_index do |value, index| %>
 
-
               <% if @uniq_arenas.include?(value[1][:name]) %>
 
                   <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=value[1][:name]%>"><%=value[1][:name]%></a>, <%=value[1][:name]%>, <%=value[1][:name]%> </h3>
@@ -20,7 +19,6 @@
               <% else %>
                   <h3 style="color:red"> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=value[1][:name]%>"><%=value[1][:name]%></a>, <%=value[1][:name]%>, <%=value[1][:name]%> </h3>
               <% end %>
-
 
     <% end %>
 
