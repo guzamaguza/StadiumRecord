@@ -2,26 +2,25 @@ require './config/environment'
 
 class ArenasController < ApplicationController
 
-    get '/arenas/index' do
-      @user = current_user
-      @arenas = @user.arenas
+    get '/arenas' do
+      @arenas = Arena.all
 
-      @arena_arr = []
-      @arenas.each do |x|
-        @arena_arr << x.name
-      end
+      erb :'/arenas/index'
+    end
 
-      @arena_uniq_hash = {}
-      @uniq_arenas = @arena_arr.uniq
-      @@arena_hash.each_with_index do |value, index|
-        @uniq_arenas.each do |aren|
-          if aren == value[1][:name]
-            @arena_uniq_hash[:"#{aren}"] = value[1]
-          end
+    get '/arenas/show' do
+      if logged_in?
+        @user = User.all.last
+        @visited_arenas = []
+        @user.visits.each do |visit|
+            @visited_arenas << visit.arena
         end
-      end
 
-      erb :'arenas/index'
+        @arenas = Arena.all
+        erb :'/arenas/show'
+      else
+        redirect '/login'
+      end
     end
 
 end
