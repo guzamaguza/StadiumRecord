@@ -3,5 +3,5 @@
 <img src="https://baseballmagazine.files.wordpress.com/2015/11/mlb-teams-map.jpg?w=640" style="float:center;height: auto;width: auto; max-width: 1500px;max-height: 1500px;">
 
 <% @arenas.each_with_index do |value,index| %>
-  <h3> <%= 1 + index %>) <a href="https://en.wikipedia.org/wiki/<%=value[1][:name].gsub(/\s+/, '_')%>"><%=value[1][:name]%></a>, <%=value[1][:location]%>, <%=value[1][:team]%> </h3>
+  <h3> <%= 1 + index %>) <a href="https://en.wikipedia.org/wiki/<%=value.team.gsub(/\s+/, '_')%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
 <% end %>

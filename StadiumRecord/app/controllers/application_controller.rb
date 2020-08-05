@@ -1,6 +1,7 @@
 require './config/environment'
 require './app/models/user'
 require './db/data/list_of_stadiums'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -9,6 +10,7 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "stadiumrecord_secret"
+    register Sinatra::Flash
   end
 
   get '/' do

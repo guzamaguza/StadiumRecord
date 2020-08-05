@@ -1,3 +1,4 @@
+=begin
 @@arena_hash = {
   "Angel_Stadium" => {
     :name => "Angel Stadium",
@@ -150,3 +151,4 @@
     :team => "Yankees"
   }
 }
+=end

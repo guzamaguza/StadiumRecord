@@ -19,3 +19,32 @@ LICENSE FOR CODE:
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+    <% if flash[:error_invalidcred] %>
+        <h3 style="color:red;"> <%= flash[:error_invalidcred] %> </h3>
+    <% end %>
+
+    <% if flash[:success_login] %>
+        <h3 style="color:green;"> <%= flash[:success_login] %> </h3>
+    <% end %>
+
+    <% if flash[:error_missinginfo] %>
+        <h3 style="color:red;"> <%= flash[:error_missinginfo] %> </h3>
+    <% end %>
+
+    <% if flash[:error_newvisit] %>
+        <h3 style="color:red;"> <%= flash[:error_newvisit] %> </h3>
+    <% end %>
+
+    <% if flash[:success_newvisit] %>
+        <h3 style="color:green;"> <%= flash[:success_newvisit] %> </h3>
+    <% end %>
+
+    <% if flash[:success_newuser] %>
+        <h3 style="color:green;"> <%= flash[:success_newuser] %> </h3>
+    <% end %>
+
+    <% if flash[:error_newuser] %>
+        <h3 style="color:red;"> <%= flash[:error_newuser] %> </h3>
+    <% end %>
