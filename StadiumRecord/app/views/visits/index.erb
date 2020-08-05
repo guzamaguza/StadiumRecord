@@ -7,9 +7,9 @@
 
 <% else %>
 
-    <% @user.visits.each_with_index do |visit, index| %>
+    <% @visits.each_with_index do |visit, index| %>
 
-      <h3> <%=index + 1%>) Stadium: <%=visit.arena.name %></h3>
+      <h3> <%=index + 1%>) Stadium: <%=Arena.find_by(id: visit.arena_id).name %></h3>
       <h3>&nbsp;&nbsp;&nbsp; Date: <%=visit.date %> </h3>
 
       <form method="post" action="/visits/<%= visit.id %>/delete">

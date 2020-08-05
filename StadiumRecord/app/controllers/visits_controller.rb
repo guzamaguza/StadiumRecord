@@ -4,11 +4,10 @@ class VisitsController < ApplicationController
 
     get '/visits' do
       if logged_in?
-
-        @visits = Visit.all
         @user = current_user
+        @visits = @user.visits
 
-        erb :'/visits/show'
+        erb :'/visits/index'
       else
         redirect '/login'
       end
@@ -30,7 +29,7 @@ class VisitsController < ApplicationController
       post '/visits/new' do
         #arena and date as values
         if logged_in?
-            new_visit = {:date => params[:date], :user_id => current_user, :arena_id => params[:arena_id]}
+            new_visit = {:date => params[:date], :user_id => current_user.id, :arena_id => params[:arena_id]}
             @visit = current_user.visits.build(new_visit)
 
             #by saving it below it triggers validations

@@ -15,7 +15,14 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @arenas = Arena.all
+
     erb :welcome
+  end
+
+  get '/list_of_arenas' do
+    @arenas = Arena.all
+
+    erb :'list_of_arenas'
   end
 
   helpers do
