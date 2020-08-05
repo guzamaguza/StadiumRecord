@@ -19,8 +19,8 @@
       <div class= "row">
         <link rel="stylesheet">
         <ul class="columns" data-columns="2">
-          <% @@arena_hash.each do |arena| %>
-              <li><input type="radio" name="name" id="name" value="<%=arena[1][:name]%>"> <%= arena[1][:name]%> <br></li>
+          <% Arena.all.each do |arena| %>
+              <li><input type="radio" name="arena_id" id="arena_id" value="<%=arena.id%>"> <%= arena.id%> <br></li>
               <% q += 1 %>
               <% if q == 30 %>
                 <% break %>
