@@ -10,9 +10,8 @@
 <% else %>
 
     <% green = 0 %>
-    <% @arenas.each_with_index do |value, index| %>
-
-              <% if @uniq_arenas.include?(value.name) %>
+    <% @all_arenas.each_with_index do |value, index| %>
+        <% @arenas.each do |aren| %>
                   <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
                   <% green += 1 %>
               <% else %>

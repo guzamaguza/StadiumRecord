@@ -13,7 +13,7 @@ class ArenasController < ApplicationController
       if logged_in?
         @user = current_user
         @arenas = @user.arenas.all
-        @uniq_arenas = Arena.all
+        @all_arenas = Arena.all
 
         erb :'arenas/index'
       else
