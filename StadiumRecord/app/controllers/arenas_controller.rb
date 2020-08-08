@@ -9,12 +9,13 @@ class ArenasController < ApplicationController
       erb :'/arenas/index'
     end
 
-    get '/arenas/show' do
+    get '/arenas/index' do
       if logged_in?
         @user = current_user
-        @arenas = Arena.all
+        @arenas = @user.arenas.all
+        @uniq_arenas = Arena.all
 
-        erb :'/arenas/show'
+        erb :'arenas/index'
       else
         redirect '/login'
       end

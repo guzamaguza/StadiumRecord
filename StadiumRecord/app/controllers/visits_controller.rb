@@ -26,7 +26,7 @@ class VisitsController < ApplicationController
         erb :'/visits/show'
       end
 
-      post '/visits/new' do
+    post '/visits/new' do
         #arena and date as values
         if logged_in?
             new_visit = {:date => params[:date], :user_id => current_user.id, :arena_id => params[:arena_id]}
