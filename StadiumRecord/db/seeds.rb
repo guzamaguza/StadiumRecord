@@ -152,7 +152,6 @@
   }
 }
 
-
 Arena.delete_all
 
 @arenas.each do |arena, arena_hash|

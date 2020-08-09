@@ -1,6 +1,6 @@
 <h2>Your Stadiums You've Visited:</h2>
 
-<h4>Legend: <span style="color:green"> Visited </span> / <span style="color:red">  Not Visited  </span> </h4>
+<h4>Legend: <span style="color:green"> Visited </span> </h4>
 
 <% if @arenas.length == 0 %>
 
@@ -8,17 +8,9 @@
     <h3 style="color:red"> Click "New Visit Entry" to submit a new entry! </h3>
 
 <% else %>
-
     <% green = 0 %>
-    <% @all_arenas.each_with_index do |value, index| %>
-        <% @arenas.each do |aren| %>
-            <% if aren.name == value.name %>
-                  <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
-                  <% green += 1 %>
-            <% else %>
-                  <h3 style="color:red"> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
-            <% end %>
-        <% end %>
+    <% @arenas.each_with_index do |value, index| %>
+        <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
     <% end %>
 
     <% if green == 30 %>
