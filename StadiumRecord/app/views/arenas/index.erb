@@ -12,12 +12,13 @@
     <% green = 0 %>
     <% @all_arenas.each_with_index do |value, index| %>
         <% @arenas.each do |aren| %>
+            <% if aren.name == value.name %>
                   <h3 style="color:green"> <%=index + 1%>) <a style="color:green" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
                   <% green += 1 %>
-              <% else %>
+            <% else %>
                   <h3 style="color:red"> <%=index + 1%>) <a style="color:red" href="https://en.wikipedia.org/wiki/<%=value.name%>"><%=value.name%></a>, <%=value.location%>, <%=value.team%> </h3>
-              <% end %>
-
+            <% end %>
+        <% end %>
     <% end %>
 
     <% if green == 30 %>
